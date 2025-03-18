@@ -74,10 +74,10 @@ def update_student(id:int,name:str=Form(...),age:int=Form(...)):
     conn.commit()
     cursor.close()
     return {"message":"Update Student Success"}
-
+    
 #delete student
 @app.delete("/delete_student")
-def delete_student(id:str=Form(...)):
+def delete_student(id:int=Form(...)):
     cursor=conn.cursor()
     cursor.execute("DELETE FROM student WHERE id=%s",(id,))
     conn.commit()
